@@ -1,0 +1,5 @@
+2026-09-11T10:49:36.284256+03:00 hp-server sotad[1434]: time="2026-09-11T10:49:36+03:00" level=debug msg="Status response" connection_start_date="2026-09-11T07:13:51Z" error= pid=1678 running=true
+2026-09-11T10:49:36.292919+03:00 hp-server sotad[1434]: time="2026-09-11T10:49:36+03:00" level=debug msg="Status response" connection_start_date="2026-09-11T07:13:51Z" error= pid=1678 running=true
+2026-09-11T10:49:36.861291+03:00 hp-server sotad[1434]: time="2026-09-11T10:49:36+03:00" level=debug msg="Status response" connection_start_date="2026-09-11T07:13:51Z" error= pid=1678 running=true
+2026-09-11T10:49:39.298247+03:00 hp-server sotad[1434]: time="2026-09-11T10:49:39+03:00" level=debug msg="Status response" connection_start_date="2026-09-11T07:13:51Z" error= pid=1678 running=true
+2026-09-11T10:49:39.303726+03:00 hp-server sotad[1434]: time="2026-09-11T10:49:39+03:00" level=debug msg="Status response" connection_start_date="2026-09-11T07:13:51Z" error= pid=1678 running=true
