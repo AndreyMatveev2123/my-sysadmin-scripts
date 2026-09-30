@@ -1,0 +1,11 @@
+[Unit]
+Description=my-app service
+After=docker.service
+Requires=docker.service
+
+[Service]
+ExecStart=/usr/bin/docker start -a my-app
+Restart=on-failure
+
+[Install]
+WantedBy=multi-user.target
