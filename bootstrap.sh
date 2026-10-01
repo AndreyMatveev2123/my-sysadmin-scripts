@@ -1,9 +1,8 @@
 #!/usr/bin/env bash
-# bootstrap.sh: поднимает проект «Сборщик логов» с нуля (ДЗ2, капстоун).
+# bootstrap.sh поднимает проект «Сборщик логов» с нуля.
 # Образ и контейнер, RAID 1 + LVM на loop-устройствах, Nginx + TLS, служба systemd.
-# Запуск из корня репозитория: ./bootstrap.sh
-# Повторный запуск безопасен: готовое не пересоздаётся, данные RAID не затираются.
-#
+# Запуск из корня ./bootstrap.sh
+# Повторный запуск безопасен так как готовое не пересоздаётся, данные RAID не затираются.
 # Используется set -e, но не set -o pipefail: конструкция «yes | mdadm ...» при
 # pipefail завершает скрипт с кодом 141 (SIGPIPE), хотя массив уже создан.
 set -e
@@ -78,7 +77,7 @@ elif [ -f "$LAB_DIR/disk1.img" ] && [ -f "$LAB_DIR/disk2.img" ] && [ -f "$LAB_DI
     LOOP1="$(attach_loop "$LAB_DIR/disk1.img")"
     LOOP2="$(attach_loop "$LAB_DIR/disk2.img")"
     LOOP3="$(attach_loop "$LAB_DIR/disk3.img")"
-    # автосборка ядром может опередить нас: «busy» тогда не ошибка
+    # автосборка ядром может опередить нас как «busy» тогда не ошибка
     sudo mdadm --assemble /dev/md0 "$LOOP1" "$LOOP2" || true
     mount_if_needed /dev/md0 /mnt/raid
     sudo vgchange -ay vg_data
@@ -116,7 +115,7 @@ if [ ! -f /etc/ssl/certs/my-app.crt ] || [ ! -f /etc/ssl/private/my-app.key ]; t
         -subj "/CN=my-app.local"
 fi
 
-# кавычки вокруг NGINXEOF: оболочка не должна подставлять $host и $request_uri
+# кавычки вокруг NGINXEOF это оболочка не должна подставлять $host и $request_uri
 sudo tee /etc/nginx/sites-available/my-app > /dev/null << 'NGINXEOF'
 server {
     listen 80;
